@@ -118,7 +118,7 @@
     # ---- Input ----
     input.keyboard.options = [ "caps:escape" ];
 
-    # ---- Shortcuts for apps: foot, rofi, ghostty ----
+    # ---- Shortcuts for apps ----
     hotkeys.commands = {
       "launch-foot" = {
         name = "Launch Foot";

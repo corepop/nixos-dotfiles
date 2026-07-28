@@ -13,7 +13,7 @@
     ./modules/system/fonts.nix
     ./modules/system/nix.nix
 
-    ./modules/display/plasma.nix
+    ./modules/display/plasma/system.nix
   ];
 
   system.stateVersion = "26.05";

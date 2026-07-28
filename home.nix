@@ -27,6 +27,6 @@ in
     ./modules/opencode.nix
     ./modules/home/shell.nix
     ./modules/home/packages.nix
-    ./modules/home/plasma.nix
+    ./modules/display/plasma/home.nix
   ];
 }
