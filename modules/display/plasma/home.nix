@@ -1,21 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Prevent Plasma from overwriting our config files on session save/logout.
-  # Plasma-manager writes these during home-manager switch, but Plasma
-  # rewrites them when saving its session state. Making them read-only
-  # ensures our declarative settings survive logout/relog.
-  home.activation.protect-plasma-config = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    chmod 444 \
-      "$HOME/.config/kdeglobals" \
-      "$HOME/.config/kwinrc" \
-      "$HOME/.config/kglobalshortcutsrc" \
-      "$HOME/.config/baloofilerc" \
-      "$HOME/.config/kxkbrc" \
-      "$HOME/.config/kwalletrc" \
-      "$HOME/.config/plasma-localerc" \
-      2>/dev/null || true
-  '';
 
   programs.plasma = {
     enable = true;
@@ -198,6 +183,7 @@
       # KWallet
       kwalletrc.Wallet."First Use" = false;
 
+      kdeglobals.Color.Scheme = "Catppuccin-Mocha-Flamingo";
       # Icon theme
       kdeglobals.Icons.Theme = "Papirus";
 
@@ -211,16 +197,6 @@
       kdeglobals.KDE = {
         contrast = 4;
         frameContrast = 0.15;
-      };
-
-      # WM colors (Tokyo Night)
-      kdeglobals.WM = {
-        activeBackground = "30,30,46";
-        activeBlend = "205,214,244";
-        activeForeground = "205,214,244";
-        inactiveBackground = "17,17,27";
-        inactiveBlend = "166,173,200";
-        inactiveForeground = "166,173,200";
       };
 
       # Keyboard layout
