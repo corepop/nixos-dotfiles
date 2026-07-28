@@ -9,7 +9,7 @@ mode: all
 - Flake URI for system rebuilds: `/home/sebastian/nixos-dotfiles#nixos-desktop`
 - Always use absolute paths (`/home/sebastian/nixos-dotfiles/...`) when referencing files in this repo
 - `~/.config/nvim` → symlinked from `config/nvim/` in this repo
-- Flake inputs: `nixpkgs` (nixos-unstable), `home-manager` (master), `nix-agent`, `plasma-manager`
+- Flake inputs: `nixpkgs` (nixos-unstable), `home-manager` (master), `nix-agent`, `plasma-manager`, `kwin-effects-better-blur-dx`
 
 ## Safety
 

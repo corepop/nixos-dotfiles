@@ -14,6 +14,7 @@
     ./modules/system/nix.nix
 
     ./modules/display/plasma.nix
+    ./modules/display/kwin-better-blur.nix
   ];
 
   system.stateVersion = "26.05";

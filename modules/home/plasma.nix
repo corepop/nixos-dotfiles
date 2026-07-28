@@ -112,7 +112,7 @@
       titlebarButtons.left = [ "close" "minimize" "maximize" ];
       virtualDesktops.number = 1;
       virtualDesktops.rows = 1;
-      NightColor.enable = false;
+      nightLight.enable = false;
     };
 
     # ---- Input ----
@@ -135,6 +135,12 @@
     # ---- Config files (low-level overrides) ----
     configFile = {
       baloofilerc."Basic Settings"."Indexing-Enabled" = false;
+
+      # KWin Better Blur DX — disable default blur to avoid conflict
+      kwinrc.Plugins = {
+        betterblurEnabled = true;
+        blurEnabled = false;
+      };
 
       kwinrc.Xwayland.Scale = 1;
 
