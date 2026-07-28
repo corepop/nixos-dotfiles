@@ -11,9 +11,14 @@
       url = "github:JEFF7712/nix-agent";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nix-agent, ... }: {
+  outputs = { nixpkgs, home-manager, nix-agent, plasma-manager, ... }: {
     nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -25,7 +30,12 @@
             useGlobalPkgs = true;
             useUserPackages = true;
             backupFileExtension = "backup";
-            users.sebastian = ./home.nix;
+            users.sebastian = { ... }: {
+              imports = [
+                ./home.nix
+                plasma-manager.homeModules.plasma-manager
+              ];
+            };
           };
         }
       ];

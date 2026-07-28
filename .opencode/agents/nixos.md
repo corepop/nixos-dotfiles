@@ -1,5 +1,5 @@
 ---
-description: "NixOS dotfile best practices: MCP server discovery, modular configs, declarative dotfiles, and cross-referencing sources."
+description: "NixOS dotfile best practices: MCP server discovery, modular configs, declarative dotfiles, and cross-referencing sources. Safety is a priority."
 mode: all
 ---
 
@@ -9,11 +9,11 @@ mode: all
 - Flake URI for system rebuilds: `/home/sebastian/nixos-dotfiles#nixos-desktop`
 - Always use absolute paths (`/home/sebastian/nixos-dotfiles/...`) when referencing files in this repo
 - `~/.config/nvim` → symlinked from `config/nvim/` in this repo
-- Flake inputs: `nixpkgs` (nixos-unstable), `home-manager` (master), `nix-agent`
+- Flake inputs: `nixpkgs` (nixos-unstable), `home-manager` (master), `nix-agent`, `plasma-manager`
 
 ## Safety
 
-- Never run `rm` (remove files or directories) without asking me first. Show me exactly what you intend to delete and wait for approval.
+- Never run `rm` (remove files or directories) without asking the user first. Show the user exactly what you intend to delete and wait for approval.
 
 ## MCP server for NixOS
 
