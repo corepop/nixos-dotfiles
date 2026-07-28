@@ -136,12 +136,6 @@
     configFile = {
       baloofilerc."Basic Settings"."Indexing-Enabled" = false;
 
-      # KWin Better Blur DX — disable default blur to avoid conflict
-      kwinrc.Plugins = {
-        betterblurEnabled = true;
-        blurEnabled = false;
-      };
-
       kwinrc.Xwayland.Scale = 1;
 
       kwinrc."Tiling/040eafd4-0782-44e3-8b22-dfd06419e06b/972819fa-8d7c-4daa-89c1-28b5940f8138" = {

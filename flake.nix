@@ -16,16 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    kwin-effects-better-blur-dx = {
-      url = "github:xarblu/kwin-effects-better-blur-dx";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { nixpkgs, home-manager, nix-agent, plasma-manager, kwin-effects-better-blur-dx, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, nix-agent, plasma-manager, ... }: {
     nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
         nix-agent.nixosModules.default
