@@ -30,5 +30,6 @@ in
     ./modules/opencode.nix
     ./modules/home
     ./modules/display/plasma/home.nix
+    ./modules/gaming
   ];
 }

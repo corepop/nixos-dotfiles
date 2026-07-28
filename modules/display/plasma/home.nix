@@ -183,7 +183,7 @@
       # KWallet
       kwalletrc.Wallet."First Use" = false;
 
-      kdeglobals.Color.Scheme = "Catppuccin-Mocha-Flamingo";
+      kdeglobals.Color.Scheme = "CatppuccinMochaFlamingo";
       # Icon theme
       kdeglobals.Icons.Theme = "Papirus";
 
