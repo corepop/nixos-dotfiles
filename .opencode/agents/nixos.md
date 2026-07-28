@@ -11,6 +11,10 @@ mode: all
 - `~/.config/nvim` → symlinked from `config/nvim/` in this repo
 - Flake inputs: `nixpkgs` (nixos-unstable), `home-manager` (master), `nix-agent`
 
+## Safety
+
+- Never run `rm` (remove files or directories) without asking me first. Show me exactly what you intend to delete and wait for approval.
+
 ## MCP server for NixOS
 
 - Use `mcp-nixos` (utensils) for **discovery** — query packages, options, Home Manager, cache status, channels
