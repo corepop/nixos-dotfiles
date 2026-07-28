@@ -20,7 +20,6 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  services.getty.autologinUser = "sebastian";
   programs = {
     mangowc = {
       enable = true;
@@ -41,6 +40,13 @@
     enableAudioWavelength = true; # Audio visualizer (cava)
     enableCalendarEvents = true; # Calendar integration (khal)
   };
+
+  services.displayManager.sddm.enable = true;
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "sebastian";
+  };
+  services.displayManager.defaultSession = "mangowc";
 
   #  services = {
   #    getty.autologinUser = "sebastian";
