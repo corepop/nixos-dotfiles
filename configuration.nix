@@ -20,34 +20,6 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  programs = {
-    mangowc = {
-      enable = true;
-    };
-  };
-  programs.dms-shell = {
-    enable = true;
-
-    systemd = {
-      enable = true; # Systemd service for auto-start
-      restartIfChanged = true; # Auto-restart dms.service when dms-shell changes
-    };
-
-    # Core features
-    enableSystemMonitoring = true; # System monitoring widgets (dgop)
-    enableVPN = true; # VPN management widget
-    enableDynamicTheming = true; # Wallpaper-based theming (matugen)
-    enableAudioWavelength = true; # Audio visualizer (cava)
-    enableCalendarEvents = true; # Calendar integration (khal)
-  };
-
-  services.displayManager.sddm.enable = true;
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "sebastian";
-  };
-  services.displayManager.defaultSession = "mangowc";
-
   #  services = {
   #    getty.autologinUser = "sebastian";
   #    picom.enable = true;
@@ -85,8 +57,8 @@
     options = "caps:escape_shifted_capslock";
   };
   # Enable the KDE Plasma Desktop Environment.
-  # services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure console keymap
   console.keyMap = "sv-latin1";
