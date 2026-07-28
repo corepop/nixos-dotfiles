@@ -30,33 +30,36 @@
       "services/foot.desktop"._launch = "Meta+Return";
       "services/rofi.desktop"._launch = "Meta+Space";
 
-      # Lock screen
-      ksmserver."Lock Session" = [ "Meta+L" "Screensaver" ];
+      # Lock screen & session
+      ksmserver."Lock Session" = [ "Screensaver" "Meta+L" ];
       ksmserver."Log Out" = "Ctrl+Alt+Del";
 
       # Power
       org_kde_powerdevil.powerProfile = [ "Battery" "Meta+B" ];
 
       # KWin window management
-      kwin.Expose = [ "Meta+F9" "Ctrl+F9" ];
-      kwin.ExposeAll = [ "Meta+F10" "Launch (C)" "Ctrl+F10" ];
-      kwin.ExposeClass = [ "Meta+F7" "Ctrl+F7" ];
+      kwin.Expose = [ "Ctrl+F9" "Meta+F9" ];
+      kwin.ExposeAll = [ "Launch (C)" "Ctrl+F10" "Meta+F10" ];
+      kwin.ExposeClass = [ "Ctrl+F7" "Meta+F7" ];
       kwin.Overview = "Meta+W";
       kwin."Grid View" = "Meta+G";
       kwin."Edit Tiles" = "Meta+T";
       kwin."Show Desktop" = "Meta+D";
-      kwin.WalkThroughWindows = [ "Meta+Tab" "Alt+Tab" ];
-      kwin."Walk Through Windows (Reverse)" = [ "Meta+Shift+Tab" "Alt+Shift+Tab" ];
-      kwin."Walk Through Windows of Current Application" = [ "Meta+`" "Alt+`" ];
+      kwin."Walk Through Windows" = [ "Alt+Tab" "Meta+Tab" ];
+      kwin."Walk Through Windows (Reverse)" = [ "Alt+Shift+Tab" "Meta+Shift+Tab" ];
+      kwin."Walk Through Windows of Current Application" = [ "Alt+`" "Meta+`" ];
+      kwin."Walk Through Windows of Current Application (Reverse)" = [ "Alt+~" "Meta+~" ];
       kwin."Window Close" = "Alt+F4";
       kwin."Window Maximize" = "Meta+PgUp";
       kwin."Window Minimize" = "Meta+PgDown";
+      kwin."Window Restore" = "Meta+Backspace";
       kwin."Window Quick Tile Left" = "Meta+Left";
       kwin."Window Quick Tile Right" = "Meta+Right";
       kwin."Window Quick Tile Top" = "Meta+Up";
       kwin."Window Quick Tile Bottom" = "Meta+Down";
       kwin."Window Operations Menu" = "Alt+F3";
       kwin."Kill Window" = "Meta+Ctrl+Esc";
+      kwin."Activate Window Demanding Attention" = "Meta+Ctrl+A";
       kwin."Switch Window Up" = "Meta+Alt+Up";
       kwin."Switch Window Down" = "Meta+Alt+Down";
       kwin."Switch Window Left" = "Meta+Alt+Left";
@@ -65,6 +68,10 @@
       kwin."Switch One Desktop Down" = "Meta+Ctrl+Down";
       kwin."Switch One Desktop to the Left" = "Meta+Ctrl+Left";
       kwin."Switch One Desktop to the Right" = "Meta+Ctrl+Right";
+      kwin."Switch to Desktop 1" = [ "Ctrl+F1" "Meta+F1" ];
+      kwin."Switch to Desktop 2" = [ "Ctrl+F2" "Meta+F2" ];
+      kwin."Switch to Desktop 3" = [ "Ctrl+F3" "Meta+F3" ];
+      kwin."Switch to Desktop 4" = [ "Ctrl+F4" "Meta+F4" ];
       kwin."Window to Next Screen" = "Meta+Shift+Right";
       kwin."Window to Previous Screen" = "Meta+Shift+Left";
       kwin."Window One Desktop Up" = "Meta+Ctrl+Shift+Up";
@@ -101,6 +108,27 @@
       "KDE Keyboard Layout Switcher"."Switch to Next Keyboard Layout" = "Meta+Alt+K";
       "KDE Keyboard Layout Switcher"."Switch to Last-Used Keyboard Layout" = "Meta+Alt+L";
 
+      # Audio
+      kmix.increase_volume = "Volume Up";
+      kmix.decrease_volume = "Volume Down";
+      kmix.increase_volume_small = "Shift+Volume Up";
+      kmix.decrease_volume_small = "Shift+Volume Down";
+      kmix.increase_microphone_volume = "Microphone Volume Up";
+      kmix.decrease_microphone_volume = "Microphone Volume Down";
+      kmix.mute = "Volume Mute";
+      kmix.mic_mute = [ "Microphone Mute" "Meta+Volume Mute" ];
+
+      # Power management keys
+      org_kde_powerdevil.PowerDown = "Power Down";
+      org_kde_powerdevil.PowerOff = "Power Off";
+      org_kde_powerdevil.Sleep = "Sleep";
+      org_kde_powerdevil.Hibernate = "Hibernate";
+      org_kde_powerdevil."Increase Screen Brightness" = "Monitor Brightness Up";
+      org_kde_powerdevil."Decrease Screen Brightness" = "Monitor Brightness Down";
+      org_kde_powerdevil."Increase Keyboard Brightness" = "Keyboard Brightness Up";
+      org_kde_powerdevil."Decrease Keyboard Brightness" = "Keyboard Brightness Down";
+      org_kde_powerdevil."Toggle Keyboard Backlight" = "Keyboard Light On/Off";
+
       # Accessibility
       kaccess."Toggle Screen Reader On and Off" = "Meta+Alt+S";
     };
@@ -118,7 +146,7 @@
     # ---- Input ----
     input.keyboard.options = [ "caps:escape" ];
 
-    # ---- Shortcuts for apps ----
+    # ---- Hotkeys for custom launchers ----
     hotkeys.commands = {
       "launch-foot" = {
         name = "Launch Foot";
@@ -134,10 +162,16 @@
 
     # ---- Config files (low-level overrides) ----
     configFile = {
+      # Disable file indexing
       baloofilerc."Basic Settings"."Indexing-Enabled" = false;
 
+      # Blur
+      kwinrc.Plugins.blurEnabled = true;
+
+      # XWayland
       kwinrc.Xwayland.Scale = 1;
 
+      # Tiling layout: 3-column (25/50/25)
       kwinrc."Tiling/040eafd4-0782-44e3-8b22-dfd06419e06b/972819fa-8d7c-4daa-89c1-28b5940f8138" = {
         padding = 4;
         tiles = ''
@@ -145,22 +179,39 @@
         '';
       };
 
+      # KWallet
       kwalletrc.Wallet."First Use" = false;
 
-      kdeglobals.KDE = {
-        contrast = 4;
-        frameContrast = 0.2;
+      # Icon theme
+      kdeglobals.Icons.Theme = "Papirus";
+
+      # Accent color
+      kdeglobals.General = {
+        AccentColor = "61,174,233";
+        LastUsedCustomAccentColor = "61,174,233";
       };
 
-      # WM colors (Tokyo Night inspired)
-      kdeglobals.WM = {
-        activeBackground = "39,44,49";
-        activeBlend = "252,252,252";
-        activeForeground = "252,252,252";
-        inactiveBackground = "32,36,40";
-        inactiveBlend = "161,169,177";
-        inactiveForeground = "161,169,177";
+      # Window decorations contrast
+      kdeglobals.KDE = {
+        contrast = 4;
+        frameContrast = 0.15;
       };
+
+      # WM colors (Tokyo Night)
+      kdeglobals.WM = {
+        activeBackground = "30,30,46";
+        activeBlend = "205,214,244";
+        activeForeground = "205,214,244";
+        inactiveBackground = "17,17,27";
+        inactiveBlend = "166,173,200";
+        inactiveForeground = "166,173,200";
+      };
+
+      # Keyboard layout
+      kxkbrc.Layout.ResetOldOptions = true;
+
+      # Locale
+      plasma-localerc.Formats.LANG = "en_US.UTF-8";
     };
   };
 }
