@@ -28,8 +28,7 @@ in
   imports = [
     ./modules/neovim.nix
     ./modules/opencode.nix
-    ./modules/home/shell.nix
-    ./modules/home/packages.nix
+    ./modules/home
     ./modules/display/plasma/home.nix
   ];
 }

@@ -15,5 +15,8 @@
         btw = "echo i use nixos, btw";
       };
     };
+    fish = {
+      enable = true;
+    };
   };
 }

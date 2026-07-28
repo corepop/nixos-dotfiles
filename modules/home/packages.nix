@@ -8,5 +8,6 @@
     foot
     zed-editor-fhs
     fish
+    btop
   ];
 }
