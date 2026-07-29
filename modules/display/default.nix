@@ -2,6 +2,6 @@
   imports = [
     ./greeter.nix
     ./plasma.nix
-    ./kineticwe
+    ./mangowc.nix
   ];
 }

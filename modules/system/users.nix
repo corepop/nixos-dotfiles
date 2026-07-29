@@ -13,6 +13,8 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "audio"
+      "rtkit"
     ];
     shell = pkgs.fish;
   };

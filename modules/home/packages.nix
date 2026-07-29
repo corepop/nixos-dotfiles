@@ -10,5 +10,6 @@
     fish
     dgop
     faugus-launcher
+    crosspipe
   ];
 }

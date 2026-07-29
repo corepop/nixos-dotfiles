@@ -16,6 +16,7 @@
     mcp-nixos
     fzf
     nix-search-tv
+    rtaudio
     (pkgs.writeShellApplication {
       name = "ns";
       runtimeInputs = with pkgs; [
