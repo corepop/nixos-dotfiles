@@ -18,6 +18,11 @@
     };
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     # Do not override its nixpkgs input, otherwise there can be mismatch between patches and kernel version
+
+    kineticwe = {
+      url = "gitlab:theblackdon/kineticwe";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -27,6 +32,7 @@
       nix-agent,
       plasma-manager,
       nix-cachyos-kernel,
+      kineticwe,
       ...
     }:
     {
@@ -34,6 +40,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
+          kineticwe.nixosModules.default
           nix-agent.nixosModules.default
           home-manager.nixosModules.home-manager
           {
