@@ -9,5 +9,6 @@
     zed-editor-fhs
     fish
     dgop
+    faugus-launcher
   ];
 }

@@ -33,18 +33,6 @@
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          (
-            { pkgs, ... }:
-            {
-              nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
-              boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-
-              # Binary cache is auto-configured via nixConfig in flake.nix,
-              # no additional binary cache config is needed.
-
-              # ... your other configs
-            }
-          )
           ./configuration.nix
           nix-agent.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -60,6 +48,9 @@
                 ];
               };
             };
+          }
+          {
+            nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
           }
         ];
       };

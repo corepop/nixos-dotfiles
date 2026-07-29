@@ -17,7 +17,10 @@
     # };
     fish = {
       enable = true;
-      
+      shellAliases = {
+        rebuild = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles#nixos-desktop";
+        btw = "echo i use nixos, btw";
+      };
     };
   };
 }

@@ -13,7 +13,9 @@
     ./modules/system/fonts.nix
     ./modules/system/nix.nix
 
-    ./modules/display/plasma/system.nix
+    ./modules/display
+
+    ./modules/gaming/steam.nix
   ];
 
   system.stateVersion = "26.05";

@@ -29,7 +29,6 @@ in
     ./modules/neovim.nix
     ./modules/opencode.nix
     ./modules/home
-    ./modules/display/plasma/home.nix
-    ./modules/gaming/steam.nix
+    # Moved to configuration.nix — programs.steam and hardware.graphics are NixOS options
   ];
 }
